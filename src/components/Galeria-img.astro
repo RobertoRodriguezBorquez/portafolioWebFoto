@@ -1,0 +1,48 @@
+---
+import "photoswipe/style.css";
+
+import gallerySenderismo from "../data/albunSenderismo.json";
+import galleryEstadio from "../data/albunEstadio.json";
+
+let gallery;
+
+if (Astro.props.category === "senderismo") {
+  gallery = gallerySenderismo;
+} else if (Astro.props.category === "estadio") {
+  gallery = galleryEstadio;
+} else {
+  console.warn("Invalid category prop. Using an empty gallery as default.");
+  gallery = []; // Asigna una matriz vacía como galería predeterminada
+}
+---
+
+<div  id="gallery">
+  {gallery.map(({ url, width, height, img }) => (
+    <a
+      class="h-auto max-w-full overflow-hidden rounded-xl aspect-square"
+      href={url}
+      target="_blank"
+      data-cropped="true"
+      data-pswp-width={width}
+      data-pswp-height={height}
+    >
+      <img class="inset-0 w-full h-full object-cover" loading="lazy" src={img} alt="" />
+    </a>
+  ))}
+</div>
+
+<script>
+  import PhotoSwipeLightbox from "photoswipe/lightbox";
+
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: "#gallery",
+    children: "a",
+    showHideAnimationType: "zoom",
+    showAnimationDuration: 1000,
+    hideAnimationDuration: 1000,
+    pswpModule: () => import("photoswipe"),
+  });
+
+  lightbox.init();
+</script>
+

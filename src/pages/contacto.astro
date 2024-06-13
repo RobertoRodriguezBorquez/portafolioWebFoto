@@ -1,0 +1,17 @@
+---
+import Contact from "../components/Contacto.astro";
+import Hero from "../components/Hero.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Contacto"> 
+    <Hero
+      tittlePrincipal={{
+        tittle: "Roberto Rodríguez ",
+        description: "Contactame",
+        perfil: "../../public/imgPerfil/perfil.jpg",
+        fondo: "../../public/svg/slanted-gradient.svg",
+      }}
+    />
+    <Contact/>
+</Layout>

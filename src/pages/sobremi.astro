@@ -1,0 +1,30 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import Presentacion from "../components/Sobremi-perfil.astro";
+
+---
+
+<script>
+  // Importa la función desde darkMode.js
+  import { initDarkMode } from "../darkMode";
+
+  // Ejecuta la función al cargar el documento
+  document.addEventListener("DOMContentLoaded", () => {
+    initDarkMode(".dark-mode-button");
+  });
+</script>
+
+<Layout title="Sobre mí">
+  <main class="fondo">
+    <Hero
+      tittlePrincipal={{
+        tittle: "Quien soy",
+        description: "Roberto Rodriguez Bz",
+        fondo: "../../public/fondosPortada/IMG_8713-2.jpg",
+      }}
+    />
+    <Presentacion />
+    
+  </main>
+</Layout>

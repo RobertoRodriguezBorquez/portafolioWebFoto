@@ -1,0 +1,163 @@
+---
+
+---
+
+<script>
+  // Importa la función desde darkMode.js
+  import { initDarkMode } from "../darkMode";
+
+  // Ejecuta la función al cargar el documento
+  document.addEventListener("DOMContentLoaded", () => {
+    initDarkMode(".dark-mode-button");
+  });
+</script>
+
+<nav
+  class="navbar transparent-bg bg-gray-50 dark:bg-gray-700 "
+  id="darkButton navbar"
+>
+  <div
+    class="flex flex-wrap justify-between items-center mx-auto p-4  dark:bg-gray-700"
+  >
+    <a
+      href="#"
+      class="flex items-center space-x-3 rtl:space-x-reverse dark:bg-gray-700"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="25"
+        height="25"
+        fill="currentColor"
+        class="text-[#239b56]"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M5.52.359A.5.5 0 0 1 6 0h4a.5.5 0 0 1 .474.658L8.694 6H12.5a.5.5 0 0 1 .395.807l-7 9a.5.5 0 0 1-.873-.454L6.823 9.5H3.5a.5.5 0 0 1-.48-.641z"
+        ></path>
+      </svg>
+    </a>
+
+    <button
+      data-collapse-toggle="navbar-solid-bg"
+      type="button"
+      class="inline-flex p-2 w-10 h-10 items-center text-sm text-[#239b56] rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-green-100  dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-green-800"
+      aria-controls="navbar-solid-bg"
+      aria-expanded="false"
+    >
+      <span class="sr-only">Abrir Menú</span>
+      <link rel="stylesheet" />
+      <svg
+        class="w-5 h-5 text-[#239b56]"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 17 14"
+      >
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M1 1h15M1 7h15M1 13h15"></path>
+      </svg>
+    </button>
+
+    <div class="hidden w-full md:block md:w-auto mx-auto" id="navbar-solid-bg">
+      <ul
+        class="flex flex-col justify-center items-center font-medium mt-4 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-700 md:dark:bg-transparent dark:border-gray-700"
+      >
+        <li>
+          <a
+            href="http://localhost:4321"
+            class="block py-2 px-24 justify-center md:p-0 text-white bg-[#239b56] rounded md:bg-transparent md:text-[#239b56] md:dark:text-[#239b56] dark:bg-[#239b56] md:dark:bg-transparent"
+            aria-current="page">Home</a
+          >
+        </li>
+        <li>
+          <a
+            href="/sobremi"
+            class="block py-2 px-3 md:p-0 text-gray-600 rounded hover:text-[#239b56] md:hover:bg-transparent md:border-0 md:hover:text-[#239b56] dark:text-gray-200 md:dark:hover:text-[#239b56]  dark:hover:text-[#239b56] md:dark:hover:bg-transparent"
+            >Sobre mí</a
+          >
+        </li>
+        <li>
+          <a  
+            href="http://localhost:4321#fotos" 
+            class="block py-2 px-3 md:p-0 text-gray-600  rounded hover:text-[#239b56] md:hover:bg-transparent md:border-0 md:hover:text-[#239b56] dark:text-gray-200 md:dark:hover:text-[#239b56]  dark:hover:text-[#239b56] md:dark:hover:bg-transparent"
+            >Categorías</a
+          >
+        </li>
+        <li>
+          <a 
+            href="/contacto"
+            class="block py-2 px-3 md:p-0 text-gray-600  rounded hover:text-[#239b56] md:hover:bg-transparent md:border-0 md:hover:text-[#239b56] dark:text-gray-200 md:dark:hover:text-[#239b56]  dark:hover:text-[#239b56] md:dark:hover:bg-transparent"
+            >Contact</a
+          >
+        </li>
+        <button id="initDarkMode" class="">
+          <svg
+            class="w-6 h-4 text-primary hover:text-[#239b56] dark:text-gray-200 dark:hover:text-[#239b56]"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 18 20"
+          >
+            <path
+              d="M17.8 13.75a1 1 0 0 0-.859-.5A7.488 7.488 0 0 1 10.52 2a1 1 0 0 0 0-.969A1.035 1.035 0 0 0 9.687.5h-.113a9.5 9.5 0 1 0 8.222 14.247 1 1 0 0 0 .004-.997Z"
+            ></path>
+          </svg>
+        </button>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- css para dejar barra siempre arriba en la pantalla y transparencia con blur al realizar scroll-->
+<style>
+  .navbar {
+    position: fixed; /* Posision arriba fija */
+    top: 0;
+    width: 100%;
+    
+    
+    z-index: 1000; /* Agrega transparencia al color de fondo */
+    transition: background-color 0.2s ease;
+    backdrop-filter: blur(
+      4px
+    ); /* Agrega transición para un cambio suave de color de fondo */
+  }
+
+  .navbar.transparent-bg {
+    background-color: rgba(
+      255,
+      255,
+      255,
+      0.95
+    ); /* Ajusta la transparencia deseada al hacer scroll */
+  }
+</style>
+
+<!-- JS -->
+<script>
+  // Importa la función desde darkMode.js
+  import { initDarkMode } from "../darkMode";
+
+  // Ejecuta la función al cargar el documento
+  document.addEventListener("DOMContentLoaded", () => {
+    initDarkMode(".dark-mode-button");
+  });
+
+  // Añade un evento clic al documento para cerrar el menú al hacer clic fuera de él
+  document.addEventListener('click', function(event) {
+    // Verifica si el clic fue dentro del menú o no
+    var isClickInsideMenu = document.getElementById('navbar-solid-bg').contains(event.target);
+    var isMenuButton = event.target.closest('.inline-flex');
+    
+    // Si el clic no fue dentro del menú y tampoco en el botón del menú, cierra el menú
+    if (!isClickInsideMenu && !isMenuButton) {
+      var navbar = document.getElementById('navbar-solid-bg');
+      navbar.classList.remove('block'); // Oculta el menú
+      navbar.classList.add('hidden'); // Asegúrate de que el menú esté oculto
+    }
+  });
+</script>

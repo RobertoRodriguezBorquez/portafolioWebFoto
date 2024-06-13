@@ -1,0 +1,49 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import ImgPortada from "../components/Seccion-Fotos-Portada.astro";
+import Carruzel from "../components/Carruzel.astro";
+import Carruzell from "../components/2Prueba-Carruzel.astro";
+
+
+---
+
+<Layout title="TMR Welcome">
+  <main>
+    <Hero
+      tittlePrincipal={{
+        tittle: "Roberto Rodríguez ",
+        description: "capturando momentos ",
+        perfil: "../../public/imgPerfil/perfil.jpg",
+        fondo: "../../public/svg/cornered-stairs.svg",
+      }}
+    />
+    
+    
+    
+    <Carruzel />
+   
+
+
+    <a href="/albun-sendero">
+      <ImgPortada
+        imgportada={{
+          tittle: "Senderismo",
+          description: "Fotografías camino a cumbres",
+          foto: "../../public/images/img-3.jpg",
+        }}
+       
+      />
+    </a>
+    <a href="/albun-estadio">
+      <ImgPortada
+        imgportada={{
+          tittle: "Estadio",
+          description: "Lo mejor de la ruca",
+          foto: "../../public/images/img-4.jpg",
+        }}
+       
+      />
+    </a>
+  </main>
+</Layout>

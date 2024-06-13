@@ -1,0 +1,24 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+
+import { Gallery } from '../components/Gallery.jsx';
+import  Galleryy  from '../components/3Prueba-galeria .astro';
+
+
+import Header from "../components/Header.astro";
+---
+
+<Layout title="TMR Welcome">
+  <Header />
+  <main>
+    <Hero
+      tittlePrincipal={{
+        tittle: "Álbum estadio ",
+        description: "Lo mejor de la ruca",
+      }}
+    />
+    <Gallery category="estadio" client:load/>
+    <Galleryy/>
+  </main>
+</Layout>

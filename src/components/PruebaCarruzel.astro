@@ -1,0 +1,25 @@
+<div id="default-carousel" class="relative w-full  my-[0.2em]  mx-auto h-[400px] sm:h-[650px] p-10 bg-white/70 dark:bg-gray-700 rounded-lg shadow-md" data-carousel="slide">
+  <div class=" relative  overflow-hidden rounded-lg h-[100%] ">
+    <script>
+      // Function to get random images
+      function getRandomImages(images) {
+        // Shuffle the array of image URLs
+        return images.slice().sort(() => Math.random() - 0.5);
+      }
+    </script>
+
+    {#each getRandomImages([
+      "https://picsum.photos/3024/4032?random=1",
+      "https://picsum.photos/1920/1080?random=2",
+      /* Add more image URLs here */
+    ]) as image, index}
+      <div class="hidden duration-700 ease-in-out" data-carousel-item>
+        <img
+          src={image}
+          class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+          alt={`Image ${index + 1}`}
+        />
+      </div>
+    {/each}
+  </div>
+  </div>

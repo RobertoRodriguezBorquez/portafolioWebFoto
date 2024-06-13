@@ -1,0 +1,89 @@
+---
+const { tittlePrincipal } = Astro.props;
+---
+
+<section class="fondo flex items-center justify-center p-36 text-pretty "
+  style={{
+    backgroundColor: "#F7FFC0",
+    backgroundImage: `url(${tittlePrincipal.fondo})`, // Ruta relativa al archivo de imagen local
+    backgroundAttachment:"fixed",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    height: "750px",
+    backgroundRepeat:"no-repeat",
+    
+  }}
+  >
+
+  <div class="text-center text-gray-400 "> 
+    {
+      tittlePrincipal.perfil && ( 
+        <img
+          class=" mx-auto w-48 h-48 rounded-full mb-4 transition-transform animate-wiggle animate-thrice  hover:scale-130 "
+          src={tittlePrincipal.perfil}
+          alt="..."
+        />
+      )
+    }
+    <div class="mt-10 my-auto">
+      <h1 class="text-3xl font-bold mb-4 text-stretch animate-pulse animate-thrice">
+        {tittlePrincipal.tittle}
+      </h1>
+      <h2 id="description" class="text-5xl hidden text-gradient  ">
+        {tittlePrincipal.description}
+      </h2>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* h2 titulo */
+  .blur-in-expand {
+    animation: blur-in-expand 1.4s linear both;
+  }
+
+  @keyframes blur-in-expand {
+    0% {
+      transform: scale(0);
+      filter: blur(12px);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      filter: blur(0);
+      opacity: 1;
+    }
+  }
+
+  .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  
+
+  /* Estilos cuando no hay imagen de perfil */
+  .my-auto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+   
+  }
+</style>
+
+<script>
+  setTimeout(function () {
+    var description = document.getElementById("description");
+    description.classList.remove("hidden");
+    description.classList.add("blur-in-expand");
+  }, 2000);
+</script>

@@ -1,0 +1,24 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import GaleriaImg from "../components/Galeria-img.astro";
+import Prueba from "../components/Prueba-galeria.astro";
+
+import { Gallery } from '../components/Gallery.jsx';
+---
+
+<Layout title="Albún Senderismo">
+  <Header />
+  <main>
+    <Hero
+      tittlePrincipal={{
+        tittle: "Albún senderismo ",
+        description: "De camino a la cima",
+      }}
+    />
+
+    <Gallery category="senderismo" client:load />
+    
+  </main>
+</Layout>

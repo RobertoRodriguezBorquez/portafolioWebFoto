@@ -1,0 +1,43 @@
+---
+import "photoswipe/style.css";
+import { getImageNaturalDimensions } from "../js/utils.js";
+
+---
+<!-- NO SACA LAS DIMENSIONES DE LAS IMAGENES, POR ENDE SALEN DISTORSIONADAS -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4 mx-auto py-20" id="gallery">
+  {
+    Array.from({ length: 10}).map(async (_, i) => {
+      const imgSrc = `public/GgaleriaAlbunFoto/senderismo/img-senderismo-${i + 1}.webp`; 
+     
+      const { width, height } = await getImageNaturalDimensions(imgSrc);
+       // Imprimir dimensiones en la consola
+       console.log(`Dimensiones de la imagen ${imgSrc}: Ancho ${width}px, Alto ${height}px`);
+
+      return (
+        <a
+          class="relative block overflow-hidden rounded-xl aspect-square"
+          href={imgSrc}
+          target="_blank"
+          data-cropped="true"
+          data-pswp-width={width}
+          data-pswp-height={height}
+        >
+          <img class="absolute inset-0 w-full h-full object-cover" loading="lazy" src={imgSrc} alt="" />
+        </a>
+      );
+    })
+  }
+</div>
+
+
+<script>
+  import PhotoSwipeLightbox from "photoswipe/lightbox";
+
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: "#gallery",
+    children: "a",
+    pswpModule: () => import("photoswipe"),
+  });
+
+  lightbox.init();
+</script>
