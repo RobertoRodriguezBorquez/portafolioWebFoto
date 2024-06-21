@@ -19,46 +19,45 @@ export function Gallery({ category }) {
   let images;
   if (category === "estadio") {
     // Cargar imágenes del álbum de estadio
-
     images = [
       {
-        src: "../../public/GgaleriaAlbunFoto/estadio/img-estadio-1.jpg",
+        src: "/GgaleriaAlbunFoto/estadio/img-estadio-1.jpg",
         alt: "Flag of India",
       },
       {
-        src: "../../public/GgaleriaAlbunFoto/estadio/img-estadio-2.jpg",
+        src: "/GgaleriaAlbunFoto/estadio/img-estadio-2.jpg",
         alt: "2",
       },
       {
-        src: "../../public/GgaleriaAlbunFoto/estadio/img-estadio-3.jpg",
+        src: "/GgaleriaAlbunFoto/estadio/img-estadio-3.jpg",
         alt: "2",
       },
       {
-        src: "../../public/GgaleriaAlbunFoto/estadio/img-estadio-4.jpg",
+        src: "/GgaleriaAlbunFoto/estadio/img-estadio-4.jpg",
         alt: "2",
       },
       {
-        src: "../../public/GgaleriaAlbunFoto/estadio/img-estadio-5.jpg",
+        src: "/GgaleriaAlbunFoto/estadio/img-estadio-5.jpg",
         alt: "2",
       },
       {
-        src: "../../public/GgaleriaAlbunFoto/estadio/img-estadio-6.jpg",
+        src: "/GgaleriaAlbunFoto/estadio/img-estadio-6.jpg",
         alt: "2",
       },
       {
-        src: "../../public/GgaleriaAlbunFoto/estadio/img-estadio-7.jpg",
+        src: "/GgaleriaAlbunFoto/estadio/img-estadio-7.jpg",
         alt: "2",
       },
       {
-        src: "../../public/GgaleriaAlbunFoto/estadio/img-estadio-8.jpg",
+        src: "/GgaleriaAlbunFoto/estadio/img-estadio-8.jpg",
         alt: "2",
       },
       {
-        src: "../../public/GgaleriaAlbunFoto/estadio/img-estadio-9.jpg",
+        src: "/GgaleriaAlbunFoto/estadio/img-estadio-9.jpg",
         alt: "2",
       },
       {
-        src: "../../public/GgaleriaAlbunFoto/estadio/img-estadio-10.jpg",
+        src: "/GgaleriaAlbunFoto/estadio/img-estadio-10.jpg",
         alt: "2",
       },
       // Agrega más imágenes aquí según sea necesario
@@ -68,23 +67,23 @@ export function Gallery({ category }) {
     images = [
       // Agrega las imágenes del álbum de senderismo aquí
       {
-        src: "../../public/GgaleriaAlbunFoto/senderismo/img-senderismo-1.webp",
+        src: "/GgaleriaAlbunFoto/senderismo/img-senderismo-1.webp",
         alt: "2",
       },
       {
-        src: "../../public/GgaleriaAlbunFoto/senderismo/img-senderismo-2.webp",
+        src: "/GgaleriaAlbunFoto/senderismo/img-senderismo-2.webp",
         alt: "2",
       },
       {
-        src: "../../public/GgaleriaAlbunFoto/senderismo/img-senderismo-3.webp",
+        src: "/GgaleriaAlbunFoto/senderismo/img-senderismo-3.webp",
         alt: "2",
       },
       {
-        src: "../../public/GgaleriaAlbunFoto/senderismo/img-senderismo-4.webp",
+        src: "/GgaleriaAlbunFoto/senderismo/img-senderismo-4.webp",
         alt: "2",
       },
       {
-        src: "../../public/GgaleriaAlbunFoto/senderismo/img-senderismo-5.webp",
+        src: "/GgaleriaAlbunFoto/senderismo/img-senderismo-5.webp",
         alt: "2",
       },
     ];
@@ -97,28 +96,36 @@ export function Gallery({ category }) {
   const onInit = () => {
     console.log("lightGallery has been initialized");
   };
+
   return (
-    <LightGallery
-      onInit={onInit}
-      speed={500}
-      plugins={[
-        lgThumbnail,
-        lgZoom,
-        lgAutoplay,
-        lgFullscreen,
-        lgRotate,
-        lgShare,
-      ]}
-    >
-      {images.map((image, index) => (
-        <a href={image.src} key={index} className=" ">
-          <img
-            alt={image.alt}
-            src={image.src}
-            className="object-cover rounded-lg"
-          />
-        </a>
-      ))}
-    </LightGallery>
+    <div className="gallery-container">
+      <LightGallery
+         plugins={[lgZoom, ]}
+         mode="lg-fade"
+         pager={false}
+         thumbnail={true}
+         galleryId={'nature'}
+         
+         
+         mobileSettings={{
+           controls: false,
+           showCloseIcon: false,
+           download: false,
+           rotate: false,
+         }}
+        elementClassNames="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 m-8"
+      >
+        {images.map((image, index) => (
+          <a href={image.src} key={index} className="relative block overflow-hidden rounded-xl aspect-square" style={{ position: "relative", overflow: "hidden" }}>
+            <img
+              alt={image.alt}
+              src={image.src}
+              className="object-cover rounded-lg w-full h-full"
+              style={{ display: "block", transition: "transform 0.2s ease-in-out" }}
+            />
+          </a>
+        ))}
+      </LightGallery>
+    </div>
   );
 }
