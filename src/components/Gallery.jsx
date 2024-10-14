@@ -113,7 +113,7 @@ export function Gallery({ category }) {
            download: false,
            rotate: false,
          }}
-        elementClassNames="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 m-8"
+        elementClassNames="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 m-8"
       >
         {images.map((image, index) => (
           <a href={image.src} key={index} className="relative block overflow-hidden rounded-xl aspect-square" style={{ position: "relative", overflow: "hidden" }}>

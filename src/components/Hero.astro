@@ -2,34 +2,40 @@
 const { tittlePrincipal } = Astro.props;
 ---
 
-<section class="fondo flex items-center justify-center p-36 text-pretty "
+<section
+  class="relative flex items-center justify-center p-36 text-pretty"
   style={{
     backgroundColor: "#F7FFC0",
-    backgroundImage: `url(${tittlePrincipal.fondo})`, // Ruta relativa al archivo de imagen local
-    backgroundAttachment:"fixed",
+    backgroundImage: `url(${tittlePrincipal.fondo})`,
+    backgroundAttachment: "fixed",
     backgroundSize: "cover",
     backgroundPosition: "center",
     height: "750px",
-    backgroundRepeat:"no-repeat",
-    
+    backgroundRepeat: "no-repeat",
   }}
-  >
+>
+  {/* Capa de opacidad */}
+  <div class="absolute inset-0 bg-black bg-opacity-25"></div>
 
-  <div class="text-center text-gray-400 "> 
+  <div class="relative text-center text-blue-400">
     {
-      tittlePrincipal.perfil && ( 
+      tittlePrincipal.perfil && (
         <img
-          class=" mx-auto w-48 h-48 rounded-full mb-4 transition-transform animate-wiggle animate-thrice  hover:scale-130 "
+          class="mx-auto w-48 h-48 rounded-full mb-4 transition-transform animate-wiggle animate-thrice hover:scale-130"
           src={tittlePrincipal.perfil}
           alt="..."
         />
       )
     }
     <div class="mt-10 my-auto">
-      <h1 class="text-3xl font-bold mb-4 text-stretch animate-pulse animate-thrice">
+      <h1
+        class="text-3xl font-bold mb-4 text-stretch animate-pulse animate-thrice text-white"
+        style={{ textShadow: "2px 4px 10px rgba(0, 0, 0, 0.5)" }}
+      >
         {tittlePrincipal.tittle}
       </h1>
-      <h2 id="description" class="text-5xl hidden text-gradient  ">
+      <h2 id="description" class="text-5xl hidden text-gradient text-emerald-600 " style={{ textShadow: "4px 6px 12px rgba(0, 0, 0, 0.7)" }}
+      >
         {tittlePrincipal.description}
       </h2>
     </div>
@@ -55,19 +61,11 @@ const { tittlePrincipal } = Astro.props;
     }
   }
 
-  .text-gradient {
-    background-image: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 400%;
-    background-position: 0%;
-  }
+ 
 
   .hidden {
     display: none;
   }
-
-  
 
   /* Estilos cuando no hay imagen de perfil */
   .my-auto {
@@ -75,8 +73,6 @@ const { tittlePrincipal } = Astro.props;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
-   
   }
 </style>
 
