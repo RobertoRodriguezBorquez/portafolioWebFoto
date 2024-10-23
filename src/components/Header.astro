@@ -40,7 +40,7 @@
     <button
       data-collapse-toggle="navbar-solid-bg"
       type="button"
-      class="inline-flex p-2 w-10 h-10 items-center text-sm text-[#239b56] rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-green-100  dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-green-800"
+      class=" inline-flex p-2 w-10 h-10 items-center text-sm text-[#239b56] rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-green-100  dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-green-800"
       aria-controls="navbar-solid-bg"
       aria-expanded="false"
     >
@@ -70,7 +70,7 @@
           <a
             href="http://localhost:4321"
             class="block py-2 px-24 justify-center md:p-0 text-white bg-[#239b56] rounded md:bg-transparent md:text-[#239b56] md:dark:text-[#239b56] dark:bg-[#239b56] md:dark:bg-transparent"
-            aria-current="page">Home</a
+            aria-current="page">Inicio</a
           >
         </li>
         <li>
@@ -91,7 +91,7 @@
           <a 
             href="/contacto"
             class="block py-2 px-3 md:p-0 text-gray-600  rounded hover:text-[#239b56] md:hover:bg-transparent md:border-0 md:hover:text-[#239b56] dark:text-gray-200 md:dark:hover:text-[#239b56]  dark:hover:text-[#239b56] md:dark:hover:bg-transparent"
-            >Contact</a
+            >Contacto</a
           >
         </li>
         <button id="initDarkMode" class="">
@@ -142,22 +142,28 @@
   // Importa la función desde darkMode.js
   import { initDarkMode } from "../darkMode";
 
-  // Ejecuta la función al cargar el documento
-  document.addEventListener("DOMContentLoaded", () => {
-    initDarkMode(".dark-mode-button");
-  });
-
-  // Añade un evento clic al documento para cerrar el menú al hacer clic fuera de él
   document.addEventListener('click', function(event) {
-    // Verifica si el clic fue dentro del menú o no
-    var isClickInsideMenu = document.getElementById('navbar-solid-bg').contains(event.target);
-    var isMenuButton = event.target.closest('.inline-flex');
-    
-    // Si el clic no fue dentro del menú y tampoco en el botón del menú, cierra el menú
-    if (!isClickInsideMenu && !isMenuButton) {
-      var navbar = document.getElementById('navbar-solid-bg');
-      navbar.classList.remove('block'); // Oculta el menú
-      navbar.classList.add('hidden'); // Asegúrate de que el menú esté oculto
-    }
-  });
+  var navbar = document.getElementById('navbar-solid-bg');
+  
+  // Verifica si el navbar existe
+  if (!navbar) return;
+
+  // Casting de event.target a HTMLElement
+  var target = event.target as HTMLElement;
+
+  // Verifica si el clic fue dentro del menú o en el botón del menú
+  var isClickInsideMenu = navbar.contains(target);
+  
+  // Casting a HTMLElement y uso de closest correctamente
+  var isMenuButton = target.closest('button[data-collapse-toggle="navbar-solid-bg"]') as HTMLElement;
+  
+  // Si el clic no fue dentro del menú ni en el botón, cierra el menú
+  if (!isClickInsideMenu && !isMenuButton) {
+    navbar.classList.remove('block'); // Oculta el menú
+    navbar.classList.add('hidden');   // Asegúrate de que el menú esté oculto
+  }
+});
+
+
+
 </script>

@@ -7,6 +7,8 @@ export default {
   theme: {
     fontFamily: {
       spectral: ["Spectral", "serif"],
+      playfair: ["Playfair Display SC", "serif"],
+
     },
     extend: {
       colors: {
@@ -38,3 +40,4 @@ export default {
     require("flowbite/plugin"),
   ],
 };
+

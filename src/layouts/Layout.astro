@@ -1,9 +1,8 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-
 import SocialMediaLink from "../components/Red-social.astro";
-import { ViewTransitions } from "astro:transitions";
+// import { ViewTransitions } from "astro:transitions";
 
 interface Props {
   title: string;
@@ -18,8 +17,22 @@ const { title } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/svg/favicon.svg" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="../../public/svg/destello.png"
+    />
     <meta name="generator" content={Astro.generator} />
+
+    <!-- Fuentes -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
 
     <title>{title}</title>
   </head>
@@ -27,11 +40,21 @@ const { title } = Astro.props;
     class="bg-neutral-100 text-stone-900 dark:bg-primary dark:text-neutral-300"
   >
     <Header />
-    <!-- <ViewTransitions/> -->
+
     <main>
       <slot />
     </main>
-    
+
+    <div class="container mx-auto my-8 md:my-12">
+      <div class="flex items-center justify-center">
+        <div
+          class="border-t border-[#239b56] dark:border-gray-700 w-[65%] mx-4"
+          style="height: 2px; margin: 0;"
+        >
+        </div>
+      </div>
+    </div>
+
     <SocialMediaLink />
     <Footer />
 
@@ -42,6 +65,9 @@ const { title } = Astro.props;
     <script type="module" src="/components/Gallery.astro"></script>
 
     <style is:global>
+      html {
+        font-family: "Roboto", sans-serif; /* Aplicar Roboto a todo */
+      }
       :root {
         --accent: 35, 155, 86;
         --accent-light: 224, 204, 250;
@@ -52,6 +78,12 @@ const { title } = Astro.props;
           rgb(var(--accent-light)) 30%,
           white 60%
         );
+      }
+      /* Aplicar Playfair a los encabezados si es necesario */
+      h1,
+      h2,
+      h3 {
+        font-family: "Playfair Display", serif; /* Ejemplo para encabezados */
       }
     </style>
   </body>

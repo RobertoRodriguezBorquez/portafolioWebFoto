@@ -2,23 +2,26 @@
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
 
-import { Gallery } from '../components/Gallery.jsx';
-import  Galleryy  from '../components/3Prueba-galeria .astro';
-
+import { Gallery } from "../components/Gallery.jsx";
 
 import Header from "../components/Header.astro";
 ---
 
-<Layout title="TMR Welcome">
+<Layout title="
+Albún Estadio - TMR">
   <Header />
   <main>
     <Hero
       tittlePrincipal={{
         tittle: "Álbum estadio ",
         description: "Lo mejor de la ruca",
+        fondo: "../../public/fondosPortada/img-portada-1.webp",
+      }}
+      customStyles={{
+        // Aquí pasas los estilos específicos
+        backgroundPosition: "center",
       }}
     />
-    <Gallery category="estadio" client:load/>
-    <Galleryy/>
+    <Gallery category="estadio" client:load />
   </main>
 </Layout>

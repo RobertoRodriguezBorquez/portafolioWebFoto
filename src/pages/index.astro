@@ -2,48 +2,68 @@
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
 import ImgPortada from "../components/Seccion-Fotos-Portada.astro";
-import Carruzel from "../components/2Carruzel.astro";
-import Carruzell from "../components/2Prueba-Carruzel.astro";
-
-
+import Carruzel from "../components/Carruzel.astro";
 ---
 
-<Layout title="TMR Welcome">
+<Layout title="TMR Inicio">
   <main>
     <Hero
       tittlePrincipal={{
         tittle: "Roberto Rodríguez ",
-        description: "capturando momentos ",
-        perfil: "../../public/imgPerfil/perfil.jpg",
-        fondo: "../../public/svg/cornered-stairs.svg",
+        description: "Capturando momentos",
+        perfil: "../../public/imgPerfil/img-perfil-4.webp",
+        fondo: "../../public/fondosPortada/img-portada-4.webp",
+      }}
+      customStyles={{
+        backgroundPosition: "center",
       }}
     />
-    
-    
-    
+
     <Carruzel />
-   
 
+    <div class="container mx-auto mt-12 md:mt-20" id="fotos">
+      <div class="flex items-center justify-center mb-4 md:mb-6">
+        <div
+          class="border-t md:border-t-2 md:w-60 border-[#239b56] dark:border-gray-700 mr-2 w-20 lg:w-96"
+        >
+        </div>
+        <h2
+          class="text-[#239b56] dark:text-gray-200 font-playfair text-2xl md:text-3xl"
+        >
+          Categorías
+        </h2>
+        <div
+          class="border-t md:border-t-2 md:w-60 border-[#239b56] dark:border-gray-700 ml-2 w-20 lg:w-96"
+        >
+        </div>
+      </div>
+    </div>
 
-    <a href="/albun-sendero">
-      <ImgPortada
-        imgportada={{
-          tittle: "Senderismo",
-          description: "Fotografías camino a cumbres",
-          foto: "../../public/images/img-3.jpg",
-        }}
-       
-      />
-    </a>
-    <a href="/albun-estadio">
-      <ImgPortada
-        imgportada={{
-          tittle: "Estadio",
-          description: "Lo mejor de la ruca",
-          foto: "../../public/images/img-4.jpg",
-        }}
-       
-      />
-    </a>
+    <div class="space-y-4">
+      <!-- Espaciado entre las imágenes de portada -->
+      <a href="/albun-sendero">
+        <ImgPortada
+          imgportada={{
+            tittle: "Senderismo",
+            description: "Camino a la cumbre",
+            largeFoto: "../../public/fondosPortadaAlbun/44.jpg",
+            smallFoto:
+              "../../public/fondosPortadaAlbun/img-portadaAlbun-3.webp",
+            mediumFoto: "../../public/fondosPortadaAlbun/4.jpg",
+          }}
+        />
+      </a>
+      <a href="/albun-estadio">
+        <ImgPortada
+          imgportada={{
+            tittle: "Estadio",
+            description: "Lo mejor de la Ruca",
+            largeFoto: "../../public/fondosPortadaAlbun/33.jpg",
+            smallFoto: "../../public/fondosPortadaAlbun/3.jpg",
+            mediumFoto: "../../public/fondosPortadaAlbun/2.jpg",
+          }}
+        />
+      </a>
+    </div>
   </main>
 </Layout>

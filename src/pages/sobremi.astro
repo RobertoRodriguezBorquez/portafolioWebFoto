@@ -15,13 +15,17 @@ import Presentacion from "../components/Sobremi-perfil.astro";
   });
 </script>
 
-<Layout title="Sobre mí">
+<Layout title="Sobre mí - TMR">
   <main class="fondo">
     <Hero
       tittlePrincipal={{
-        tittle: "Quien soy",
-        description: "Roberto Rodriguez Bz",
-        fondo: "../../public/fondosPortada/IMG_8713-2.jpg",
+        tittle: "¿Quién soy?",
+        description: "Roberto Rodríguez Bz",
+        fondo: "../../public/fondosPortada/img-portada-8.webp",
+      }}
+      customStyles={{
+        backgroundSize: "",  // Aquí pasas los estilos específicos
+        backgroundPosition: "top",
       }}
     />
     <Presentacion />

@@ -1,16 +1,14 @@
 ---
-const { tittlePrincipal } = Astro.props;
+const { tittlePrincipal, customStyles } = Astro.props;
 ---
-
 <section
-  class="relative flex items-center justify-center p-36 text-pretty"
+  class="relative flex items-center justify-center p-10 md:p-36 text-pretty h-[100vh] sm:h-[100vh] md:h-[100vh] lg:h-[100vh]"
   style={{
     backgroundColor: "#F7FFC0",
     backgroundImage: `url(${tittlePrincipal.fondo})`,
     backgroundAttachment: "fixed",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    height: "750px",
+    backgroundSize: customStyles?.backgroundSize || "cover",
+    backgroundPosition: customStyles?.backgroundPosition || "center", // Posición centrada para pantallas pequeñas
     backgroundRepeat: "no-repeat",
   }}
 >
@@ -18,32 +16,37 @@ const { tittlePrincipal } = Astro.props;
   <div class="absolute inset-0 bg-black bg-opacity-25"></div>
 
   <div class="relative text-center text-blue-400">
-    {
-      tittlePrincipal.perfil && (
-        <img
-          class="mx-auto w-48 h-48 rounded-full mb-4 transition-transform animate-wiggle animate-thrice hover:scale-130"
-          src={tittlePrincipal.perfil}
-          alt="..."
-        />
-      )
-    }
-    <div class="mt-10 my-auto">
-      <h1
-        class="text-3xl font-bold mb-4 text-stretch animate-pulse animate-thrice text-white"
-        style={{ textShadow: "2px 4px 10px rgba(0, 0, 0, 0.5)" }}
-      >
-        {tittlePrincipal.tittle}
-      </h1>
-      <h2 id="description" class="text-5xl hidden text-gradient text-emerald-600 " style={{ textShadow: "4px 6px 12px rgba(0, 0, 0, 0.7)" }}
-      >
-        {tittlePrincipal.description}
-      </h2>
-    </div>
+  {
+    tittlePrincipal.perfil && (
+      <img
+        class="mx-auto rounded-full mb-4 transition-transform animate-wiggle animate-thrice img-animate perfil-optimized"
+        src={tittlePrincipal.perfil}
+        alt="..."
+      />
+    )
+  }
+  <div class="mt-16 md:mt-20 my-auto"> 
+    <h1
+      class="font-playfair font-normal text-3xl md:text-5xl mb-4 md:mb-8  lg:mb-10  text-stretch animate-pulse animate-thrice text-white"
+      style={{ textShadow: "2px 4px 10px rgba(0, 0, 0, 0.5)" }}
+    >
+      {tittlePrincipal.tittle}
+    </h1>
+    <h2
+  id="description"
+  class="font-playfair font-semibold text-2xl md:text-4xl hidden text-gradient  text-emerald-200"
+  style={{ textShadow: "2px 4px 10px rgba(0, 0, 0, 0.5)" }} 
+>
+      {tittlePrincipal.description}
+    </h2>
+  </div>
+</div>
+
   </div>
 </section>
 
 <style>
-  /* h2 titulo */
+  /* h2 description */
   .blur-in-expand {
     animation: blur-in-expand 1.4s linear both;
   }
@@ -61,8 +64,6 @@ const { tittlePrincipal } = Astro.props;
     }
   }
 
- 
-
   .hidden {
     display: none;
   }
@@ -74,12 +75,39 @@ const { tittlePrincipal } = Astro.props;
     align-items: center;
     justify-content: center;
   }
+
+  /* Imagen de perfil optimizada */
+  .perfil-optimized {
+    width: 20vw;   /* Tamaño adaptable al ancho de la pantalla */
+    height: 20vw;
+    max-width: 120px;  /* Limita el tamaño máximo en pantallas más grandes */
+    max-height: 120px;
+  }
+
+  @media (min-width: 600px) {
+    .perfil-optimized {
+      width: 150px;   /* Tamaño fijo en pantallas medianas */
+      height: 150px;
+    }
+  }
+
+  @media (orientation: landscape) and (max-width: 600px) {
+    .perfil-optimized {
+      width: 25vw;  /* Ajuste flexible en pantallas pequeñas horizontales */
+      height: 25vw;
+    }
+  }
 </style>
 
 <script>
+document.addEventListener("DOMContentLoaded", function () {
   setTimeout(function () {
     var description = document.getElementById("description");
-    description.classList.remove("hidden");
-    description.classList.add("blur-in-expand");
+    if (description) { // Verifica si el elemento existe
+      description.classList.remove("hidden");
+      description.classList.add("blur-in-expand");
+    }
   }, 2000);
+});
+
 </script>
