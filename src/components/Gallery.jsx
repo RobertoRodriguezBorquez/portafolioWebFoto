@@ -1,4 +1,3 @@
-import React from "react";
 import LightGallery from "lightgallery/react";
 import "lightgallery/css/lightgallery.css";
 import "lightgallery/css/lg-zoom.css";
@@ -7,12 +6,8 @@ import "lightgallery/css/lg-autoplay.css";
 import "lightgallery/css/lg-fullscreen.css";
 import "lightgallery/css/lg-share.css";
 import "lightgallery/css/lg-rotate.css";
-import lgThumbnail from "lightgallery/plugins/thumbnail";
+
 import lgZoom from "lightgallery/plugins/zoom";
-import lgAutoplay from "lightgallery/plugins/autoplay";
-import lgFullscreen from "lightgallery/plugins/fullscreen";
-import lgShare from "lightgallery/plugins/share";
-import lgRotate from "lightgallery/plugins/rotate";
 
 export function Gallery({ category }) {
   // Lógica para cargar las imágenes según la categoría
@@ -168,7 +163,6 @@ export function Gallery({ category }) {
         src: "/GgaleriaAlbunFoto/senderismo/img-senderismo-20.webp",
         alt: "",
       },
-      
     ];
   } else {
     // Manejar caso por defecto o categoría desconocida

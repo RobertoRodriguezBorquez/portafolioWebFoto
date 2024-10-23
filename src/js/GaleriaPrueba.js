@@ -1,6 +1,3 @@
-import React from "react";
-import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
-
 const images = [
   "https://picsum.photos/200/300?image=1050",
   //...

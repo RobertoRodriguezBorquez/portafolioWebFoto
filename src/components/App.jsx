@@ -1,17 +1,12 @@
-import { Gallery } from "./Gallery"
-import "../styles/styles.css"
-
-
+import { Gallery } from "./Gallery";
+import "../styles/styles.css";
 
 function App() {
-
-
   return (
-    
     <>
       <Gallery />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
