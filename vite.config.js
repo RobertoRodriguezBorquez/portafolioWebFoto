@@ -1,9 +1,10 @@
+// vite.config.js
 import { defineConfig } from 'vite';
 
 export default defineConfig({
   build: {
     rollupOptions: {
-      external: ['lightgallery/react']
-    }
-  }
+      external: ['lightgallery/react/Lightgallery.es5.mjs'],
+    },
+  },
 });
