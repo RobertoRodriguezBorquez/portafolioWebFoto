@@ -1,3 +1,5 @@
+import React from 'react';
+
 import LightGallery from "lightgallery/react";
 import "lightgallery/css/lightgallery.css";
 import "lightgallery/css/lg-zoom.css";
