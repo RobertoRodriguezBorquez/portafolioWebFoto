@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Gallery } from "./Gallery";
-import "../styles/styles.css";
+import 'lightgallery/css/lightgallery.css'
 
 function App() {
   return (
