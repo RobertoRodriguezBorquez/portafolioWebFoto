@@ -9,12 +9,13 @@ const __dirname = path.dirname(__filename);
 export default defineConfig({
   resolve: {
     alias: {
+      // Aquí puedes definir el alias si es necesario
       'lightgallery/react': path.resolve(__dirname, 'node_modules/lightgallery/react/Lightgallery.es5.mjs')
     }
   },
   build: {
     rollupOptions: {
-      external: ['lightgallery/react']
-    }
-  }
+      external: ['lightgallery/react'], // Asegúrate de que este módulo esté listado aquí
+    },
+  },
 });
