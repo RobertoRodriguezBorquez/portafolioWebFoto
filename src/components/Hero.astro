@@ -2,20 +2,23 @@
 const { tittlePrincipal, customStyles } = Astro.props;
 ---
 <section
-  class="relative flex items-center justify-center p-10 md:p-36 text-pretty h-[100vh] sm:h-[100vh] md:h-[100vh] lg:h-[100vh]"
+  class="relative flex items-center justify-center p-10 md:p-36 text-pretty h-[100vh]"
   style={{
-    backgroundColor: "#F7FFC0",
+    backgroundColor:customStyles?.backgroundColor || "#333",
     backgroundImage: `url(${tittlePrincipal.fondo})`,
     backgroundAttachment: "fixed",
     backgroundSize: customStyles?.backgroundSize || "cover",
     backgroundPosition: customStyles?.backgroundPosition || "center", // Posición centrada para pantallas pequeñas
     backgroundRepeat: "no-repeat",
+    
+
+    
   }}
 >
   {/* Capa de opacidad */}
   <div class="absolute inset-0 bg-black bg-opacity-25"></div>
 
-  <div class="relative text-center text-blue-400">
+  <div class="relative text-center">
   {
     tittlePrincipal.perfil && (
       <img

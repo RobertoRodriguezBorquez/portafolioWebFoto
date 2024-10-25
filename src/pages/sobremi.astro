@@ -2,8 +2,9 @@
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
 import Presentacion from "../components/Sobremi-perfil.astro";
+import PreloadImg from "../components/Preload-img-Portada.astro";
 ---
-
+<PreloadImg image="/fondosPortada/img-portada-8.webp" />
 <script>
   // Importa la función desde darkMode.js
   import { initDarkMode } from "../darkMode";
@@ -23,7 +24,6 @@ import Presentacion from "../components/Sobremi-perfil.astro";
         fondo: "/fondosPortada/img-portada-8.webp",
       }}
       customStyles={{
-        backgroundSize: "", // Aquí pasas los estilos específicos
         backgroundPosition: "top",
       }}
     />

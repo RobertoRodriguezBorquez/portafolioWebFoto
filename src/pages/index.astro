@@ -3,8 +3,10 @@ import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
 import ImgPortada from "../components/Seccion-Fotos-Portada.astro";
 import Carruzel from "../components/Carruzel.astro";
+import PreloadImg from "../components/Preload-img-Portada.astro";
 ---
 
+<PreloadImg image="/fondosPortada/img-portada-4.webp" />
 <Layout title="TMR Home">
   <main>
     <Hero
@@ -47,8 +49,7 @@ import Carruzel from "../components/Carruzel.astro";
             tittle: "Senderismo",
             description: "Camino a la cumbre",
             largeFoto: "/fondosPortadaAlbun/img-portadaAlbun-9.webp",
-            smallFoto:
-              "/fondosPortadaAlbun/img-portadaAlbun-3.webp",
+            smallFoto: "/fondosPortadaAlbun/img-portadaAlbun-3.webp",
             mediumFoto: "/fondosPortadaAlbun/img-portadaAlbun-7.webp",
           }}
         />
