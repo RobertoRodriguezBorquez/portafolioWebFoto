@@ -12,20 +12,21 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
     <link
       rel="icon"
       type="image/svg+xml"
-      href="../../public/svg/destello.png"
+      href="/svg/destello.png"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"
-    />
+    <link type="text/css" rel="stylesheet" href="css/lightgallery.css" />
+
+		<!-- lightgallery plugins -->
+		<link type="text/css" rel="stylesheet" href="css/lg-zoom.css" />
+		<link type="text/css" rel="stylesheet" href="css/lg-thumbnail.css" />
     <meta name="generator" content={Astro.generator} />
 
     <!-- Fuentes -->

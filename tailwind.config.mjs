@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+import flowbite from 'flowbite/plugin';
+import tailwindcssAnimated from 'tailwindcss-animated';
+
 export default {
   content: [
     "./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
@@ -8,7 +11,6 @@ export default {
     fontFamily: {
       spectral: ["Spectral", "serif"],
       playfair: ["Playfair Display SC", "serif"],
-
     },
     extend: {
       colors: {
@@ -22,12 +24,9 @@ export default {
       },
     },
   },
-  plugins: [require("flowbite/plugin")],
-
   plugins: [
-    // Para animaciones
-    require("tailwindcss-animated"),
-    /* para dar estiramiento testo h1 de seccion hero */
+    tailwindcssAnimated,
+    flowbite,
     function ({ addUtilities }) {
       const extendUtilities = {
         ".text-stretch": {
@@ -37,7 +36,5 @@ export default {
 
       addUtilities(extendUtilities, ["responsive", "hover"]);
     },
-    require("flowbite/plugin"),
   ],
 };
-
