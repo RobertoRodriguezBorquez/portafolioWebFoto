@@ -12,15 +12,17 @@ export default defineConfig({
     },
   },
   optimizeDeps: {
-    include: ['lightgallery/react'],
+    include: ['lightgallery/react', 'lightgallery/plugins/thumbnail', 'lightgallery/plugins/zoom'],
   },
+  
   build: {
     rollupOptions: {
       external: [
-        'lightgallery/react',
+        'lightgallery/react/Lightgallery.es5.mjs',
         'lightgallery/plugins/thumbnail',
         'lightgallery/plugins/zoom',
       ],
     },
-  },
+  }
+  
 });
