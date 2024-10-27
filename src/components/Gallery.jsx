@@ -19,7 +19,7 @@ const getImagesByCategory = (category) => {
     case "estadio":
       return [
         {
-          src: "/GgaleriaAlbunFoto/estadio/img-estadio-1.webp",
+          src: "/GgaleriaAlbunFoto/estadio/img-estadio-16.webp",
           alt: "La Ruca",
         },
         {
@@ -79,16 +79,13 @@ const getImagesByCategory = (category) => {
           alt: "La Ruca",
         },
         {
-          src: "/GgaleriaAlbunFoto/estadio/img-estadio-16.webp",
+          src: "/GgaleriaAlbunFoto/estadio/img-estadio-1.webp",
           alt: "La Ruca",
         },
       ];
     case "senderismo":
       return [
-        {
-          src: "/GgaleriaAlbunFoto/senderismo/img-senderismo-1 2.webp",
-          alt: "Senderismo",
-        },
+        
         {
           src: "/GgaleriaAlbunFoto/senderismo/img-senderismo-1.webp",
           alt: "Senderismo",
@@ -165,6 +162,10 @@ const getImagesByCategory = (category) => {
           src: "/GgaleriaAlbunFoto/senderismo/img-senderismo-20.webp",
           alt: "Senderismo ",
         },
+        {
+          src: "/GgaleriaAlbunFoto/senderismo/img-senderismo-21.webp",
+          alt: "Senderismo ",
+        },
       ];
     default:
       console.warn("Categoría inválida. Galería vacía.");
@@ -188,9 +189,9 @@ export function Gallery({ category }) {
         thumbnail={true}
         galleryId={"nature"}
         mobileSettings={{
-          controls: true,
+          controls: false,
           showCloseIcon: true,
-          download: true,
+          download: false,
           rotate: true,
           mode: 'lg-fade', // Asegúrate de que el modo esté configurado correctamente
           enableSwipe: true, // Habilita el desplazamiento en móviles
