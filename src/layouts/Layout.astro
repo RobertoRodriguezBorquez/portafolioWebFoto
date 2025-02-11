@@ -66,27 +66,6 @@ const { title } = Astro.props;
     ></script>
     <script is:inline src="/components/Gallery.jsx"></script>
 
-    <style is:global>
-      html {
-        font-family: "Roboto", sans-serif; /* Aplicar Roboto a todo */
-      }
-      :root {
-        --accent: 35, 155, 86;
-        --accent-light: 224, 204, 250;
-        --accent-dark: 49, 10, 101;
-        --accent-gradient: linear-gradient(
-          45deg,
-          rgb(var(--accent)),
-          rgb(var(--accent-light)) 30%,
-          white 60%
-        );
-      }
-      /* Aplicar Playfair a los encabezados si es necesario */
-      h1,
-      h2,
-      h3 {
-        font-family: "Playfair Display", serif; /* Ejemplo para encabezados */
-      }
-    </style>
+   
   </body>
 </html>
